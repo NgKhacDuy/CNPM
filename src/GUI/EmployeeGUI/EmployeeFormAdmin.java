@@ -352,16 +352,13 @@ public class EmployeeFormAdmin extends JPanel {
                 }
                 String pos = employeeDTO.getPositionDTO().getId_positions();
                 if (pos.equals("p1")) {
-                    cboPosition.setSelectedIndex(1);
+                    cboPosition.setSelectedIndex(0);
                 }
                 if (pos.equals("p2")) {
-                    cboPosition.setSelectedIndex(2);
+                    cboPosition.setSelectedIndex(1);
                 }
                 if (pos.equals("p3")) {
-                    cboPosition.setSelectedIndex(3);
-                }
-                if (pos.equals("p0")) {
-                    cboPosition.setSelectedIndex(4);
+                    cboPosition.setSelectedIndex(2);
                 }
             }
         });
