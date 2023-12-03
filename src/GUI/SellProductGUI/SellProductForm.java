@@ -554,6 +554,8 @@ public class SellProductForm extends JPanel {
                                 date = new Date();
                                 id_order = "OR" + date.getTime();
                                 txtOrderId.setText(id_order);
+                                customerDTO = null;
+                                txtCustomer.setText("");
 			}
 		});
 	}
