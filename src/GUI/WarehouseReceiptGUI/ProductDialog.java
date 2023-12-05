@@ -103,7 +103,7 @@ public class ProductDialog extends JDialog {
 
 		image = new JLabel("");
 		image.setHorizontalAlignment(SwingConstants.CENTER);
-		image.setIcon(new ImageIcon(ProductDialog.class.getResource("/images/Nike-Shirt-17-icon.png")));
+		image.setIcon(new ImageIcon(ProductDialog.class.getResource("")));
 		image.setBounds(12, 36, 128, 145);
 		panel.add(image);
 

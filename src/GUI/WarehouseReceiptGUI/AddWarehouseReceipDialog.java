@@ -573,6 +573,9 @@ public class AddWarehouseReceipDialog extends JDialog {
 		txtPriceProduct.setText("");
 		txtProductQuantity.setText("");
 		txtProductBrand.setEditable(true);
+                nameImage.setText("");
+                image.setIcon(null);
+              
 	}
 
 	public static String getId_product_exists() {

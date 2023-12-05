@@ -328,7 +328,7 @@ public class WarehouseReceiptForm extends JPanel{
 		btnAdd.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				AddWarehouseReceipDialog addWarehouseDialog = new AddWarehouseReceipDialog(employeeDTO);
-				addWarehouseDialog.setVisible(true);
+                                addWarehouseDialog.setVisible(true);
 			}
 		});
 
