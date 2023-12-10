@@ -91,7 +91,7 @@ public class EmployeeFormAdmin extends JPanel {
         pnHeader.setBounds(0, 0, 830, 32);
         add(pnHeader);
 
-        JLabel lblNhnVin = new JLabel("QUẢN LÝ NHÂN VIÊN");
+        JLabel lblNhnVin = new JLabel("QUẢN LÝ TÀI KHOẢN");
         lblNhnVin.setHorizontalAlignment(SwingConstants.CENTER);
         lblNhnVin.setForeground(new Color(0, 128, 128));
         lblNhnVin.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -344,7 +344,7 @@ public class EmployeeFormAdmin extends JPanel {
                 txtPhone.setText(employeeDTO.getPhone());
                 txtCMND.setText(employeeDTO.getCmnd());
                 txtUsername.setText(accountDTO.getUsename());
-                txtPassword.setText(accountDTO.getPassword());
+                txtPassword.setText(accountDTO.getUsename());
                 if (accountDTO.getStatus() == 1) {
                     radioActive.setSelected(true);
                 } else {
@@ -534,12 +534,18 @@ public class EmployeeFormAdmin extends JPanel {
                                     JOptionPane.showMessageDialog(null, "Vui lòng điền đẩy đủ thông tin!");
                                     return;
                                 }
+                                
+                                int activeAccount=0, blockAccount=0;
                                 if (radioActive.isSelected()) {
-                                    int activeAccount = accountBLL.active(accountDTO);
+                                    activeAccount = accountBLL.active(accountDTO);
                                 } else {
-                                    int blockAccount = accountBLL.suspend(accountDTO);
+                                    blockAccount = accountBLL.suspend(accountDTO);
                                 }
-                                JOptionPane.showMessageDialog(null, "Sửa thành công!");
+                                
+                                if (accountBLL.update(accountDTO)!=0 || (activeAccount!=0) || (blockAccount!=0))
+                                {
+                                    JOptionPane.showMessageDialog(null, "Sửa thành công!");
+                                }
                                 txtEmployeeName.setEditable(false);
                                 pnOrderAction.remove(btnConfirm);
                                 pnOrderAction.add(btnUpdate);

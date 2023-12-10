@@ -145,6 +145,32 @@ public class AccountDAL {
 		
 		return kq;
 	}
+        
+        public int update(AccountDTO account) {
+		int kq = 0;
+		try {
+//			String sql = "INSERT tbl_account(`id_account`, `username`, `password`, `status`) VALUES(?, ?, md5(?), ?)";
+                        String sql = "UPDATE tbl_account SET username=?, password=md5(?) WHERE id_account=?";
+			conn = JDBCUtil.getConnection();
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, account.getUsename());
+			pstm.setString(2, account.getPassword());
+			pstm.setString(3, account.getId_user());
+			kq = pstm.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstm.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		return kq;
+	}
 	
 	public int suspend(AccountDTO account) {
 		int kq = 0;

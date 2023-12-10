@@ -26,6 +26,11 @@ public class AccountBLL {
         int kq = accountDAL.insert(account);
         return kq;
     }
+    
+    public int update(AccountDTO account) {
+        int kq = accountDAL.update(account);
+        return kq;
+    }
 
     public int suspend(AccountDTO account) {
         int kq = accountDAL.suspend(account);
